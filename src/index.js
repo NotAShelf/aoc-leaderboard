@@ -1,4 +1,7 @@
 const fsExtra = require("fs-extra");
+const { token, rootPath } = require("./utils/login");
+
+// construct the client
 const { Client, GatewayIntentBits, EmbedBuilder } = require("discord.js");
 const client = new Client({
   intents: [
@@ -11,12 +14,12 @@ const client = new Client({
 client.once("ready", async () => {
   console.log(`Logged in as ${client.user.tag}`);
   try {
-    const data = await fsExtra.readJson("./data.json");
+    const data = await fsExtra.readJson(rootPath + "/data.json");
     const membersArray = Object.values(data.members);
 
     // paginate
     const pages = paginate(membersArray, 5);
-    console.log("Total pages:", pages.length); // Log the total pages
+    console.log("Total pages:", pages.length); // log the total pages
 
     // target guild and channel
     const guildId = "445821876183367680";
@@ -35,7 +38,7 @@ client.once("ready", async () => {
 
     const leftArrow = "⬅️";
     const rightArrow = "➡️";
-    const embed = formatPageAsEmbed(pages[0]); // Format the first page as an embed
+    const embed = formatPageAsEmbed(pages[0]); // format the first page as an embed
 
     channel.send({ embeds: [embed] }).then((message) => {
       message.react(leftArrow);
@@ -50,8 +53,8 @@ client.once("ready", async () => {
 
       const collector = message.createReactionCollector({
         filter,
-        time: 60000,
-      }); // Collect reactions for 60 seconds
+        time: 60000, // 60 seconds
+      });
 
       let pageNumber = 0;
 
@@ -108,7 +111,7 @@ function formatPageAsEmbed(page) {
   for (const memberId in page) {
     const member = page[memberId];
     if (!member.name || !member.stars || !member.local_score) {
-      continue; // Skip this member if any of the properties are missing
+      continue; // skip this member if any of the properties are missing
     }
     embed.addFields(
       {
@@ -132,6 +135,4 @@ function formatPageAsEmbed(page) {
   return embed;
 }
 
-client.login(
-  "MTE4MDI0NDA2OTkxMDMxNTEwOA.GQeW-5.mrlH_xOtM9M7-ycq2wB_48fEP_395gbTHmNo48",
-);
+client.login(token);
