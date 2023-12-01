@@ -1,4 +1,4 @@
-const { EmbedBuilder } = require("discord.js");
+import { EmbedBuilder } from "discord.js";
 
 function paginate(array, page_size) {
   if (!Array.isArray(array)) {

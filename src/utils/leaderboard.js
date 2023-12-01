@@ -1,6 +1,6 @@
-const fsExtra = require("fs-extra");
-const { client } = require("../index");
-const { paginate, formatPageAsEmbed } = require("./embed");
+import fsExtra from "fs-extra";
+import { client } from "../index";
+import { paginate, formatPageAsEmbed } from "./embed";
 
 async function sendLeaderboard() {
   try {

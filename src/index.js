@@ -1,8 +1,7 @@
-const fsExtra = require("fs-extra");
-const { token, rootPath } = require("./utils/login");
+import fsExtra from "fs-extra";
+import { Client, GatewayIntentBits, EmbedBuilder } from "discord.js";
+import { token, rootPath } from "./utils/login";
 
-// construct the client
-const { Client, GatewayIntentBits, EmbedBuilder } = require("discord.js");
 const client = new Client({
   intents: [
     GatewayIntentBits.Guilds,

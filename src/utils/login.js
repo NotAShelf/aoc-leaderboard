@@ -1,8 +1,7 @@
 const rootPath = "./.";
+import yaml from "js-yaml";
+import fs from "fs";
 
-// get bot token from config.yml
-const yaml = require("js-yaml");
-const fs = require("fs");
 async function getToken() {
   try {
     const filePath = rootPath + "/config.yml";
