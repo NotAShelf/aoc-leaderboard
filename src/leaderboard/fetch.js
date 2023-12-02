@@ -4,8 +4,8 @@ import axios from "axios";
 import { aocToken, leaderboardNumber } from "../utils/config.js";
 
 const DATA_FILE_PATH = "./data.json";
-
 const NB_MEMBER_PER_PAGE = 5;
+
 async function fetchApiLeaderboard() {
   const res = await axios.get(
     `https://adventofcode.com/2023/leaderboard/private/view/${

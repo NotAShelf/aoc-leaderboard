@@ -20,7 +20,7 @@ function formatPageAsEmbed(pages, index) {
     .setFooter({
       text: `Page ${index + 1}/${
         pages.length
-      }.\nUse arrow reactions to navigate between pages.`,
+      }.\nUse arrow reactions to navigate.`,
       iconURL: "https://adventofcode.com/favicon.png",
     });
 
@@ -31,7 +31,8 @@ function formatPageAsEmbed(pages, index) {
       member.stars == undefined ||
       member.local_score == undefined
     ) {
-      continue; // skip this member if any of the properties are missing
+      // skip this member if any of the properties are missing
+      continue;
     }
     embed.addFields(
       {

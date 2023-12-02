@@ -13,13 +13,13 @@ client.once("ready", async () => {
   // target guild and channel
   const guild = client.guilds.cache.get(guildId);
   if (!guild) {
-    console.error("Guild not found");
+    console.error("Guild ${guildId} not found");
     return;
   }
 
   const channel = guild.channels.cache.get(channelId);
   if (!channel) {
-    console.error("Channel not found");
+    console.error("Channel ${channelId} not found");
     return;
   }
 
