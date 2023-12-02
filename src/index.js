@@ -1,6 +1,6 @@
-import fsExtra from "fs-extra";
 import { Client, GatewayIntentBits, EmbedBuilder } from "discord.js";
 import { token, guildId, channelId } from "./utils/config.js";
+import fetchLadderboard from "./utils/fetchLadderboard.js";
 
 const client = new Client({
   intents: [
@@ -12,12 +12,6 @@ const client = new Client({
 
 client.once("ready", async () => {
   console.log(`Logged in as ${client.user.tag}`);
-
-  const data = await fsExtra.readJson("./data.json");
-  const membersArray = Object.values(data.members);
-
-  // paginate
-  const pages = paginate(membersArray, 5);
 
   // target guild and channel
   const guild = client.guilds.cache.get(guildId);
@@ -32,9 +26,11 @@ client.once("ready", async () => {
     return;
   }
 
+  const dataPages = await fetchLadderboard();
+
   const leftArrow = "⬅️";
   const rightArrow = "➡️";
-  const embed = formatPageAsEmbed(pages[0]); // format the first page as an embed
+  const embed = formatPageAsEmbed(dataPages[0]); // format the first page as an embed
 
   channel.send({ embeds: [embed] }).then((message) => {
     message.react(leftArrow);
@@ -70,19 +66,6 @@ client.once("ready", async () => {
     });
   });
 });
-
-function paginate(array, page_size) {
-  if (!Array.isArray(array)) {
-    throw new Error("Expected an array");
-  }
-
-  const pages = [];
-  for (let i = 0; i < array.length; i += page_size) {
-    pages.push(array.slice(i, i + page_size));
-  }
-
-  return pages;
-}
 
 function formatPageAsEmbed(page) {
   const embed = new EmbedBuilder()
