@@ -1,7 +1,7 @@
 import fsExtra from "fs-extra";
 import axios from "axios";
 
-import { aocToken, leaderboardNumber } from "../utils/config.js";
+import { aocToken, leaderboardNumber } from "../handlers/configHandler.js";
 
 const DATA_FILE_PATH = "./data.json";
 const NB_MEMBER_PER_PAGE = 5;

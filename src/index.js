@@ -1,7 +1,12 @@
-import { token, guildId, channelId } from "./utils/config.js";
+import { token, guildId, channelId } from "./handlers/configHandler.js";
+
 import fetchLeaderboard from "./leaderboard/fetch.js";
 import messageLeaderboard from "./leaderboard/message.js";
+
+import handleInteraction from "./utils/handlers/interactionHandler.js";
+
 import client from "./utils/client.js";
+import { registerCommands, loadCommands } from "./utils/commands.js";
 
 function sleep(s) {
   return new Promise((resolve) => setTimeout(resolve, s * 1000));
@@ -37,6 +42,18 @@ client.once("ready", async () => {
 
     await sleep(3600);
   }
+});
+
+console.log("Loading commands...");
+try {
+  await loadCommands();
+  await registerCommands();
+} catch (error) {
+  console.error(error);
+}
+
+client.on("interactionCreate", async (interaction) => {
+  await handleInteraction(interaction);
 });
 
 client.login(token);

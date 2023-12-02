@@ -4,7 +4,7 @@ import client from "../utils/client.js";
 const LEFT_ARROW = "⬅️";
 const RIGHT_ARROW = "➡️";
 
-function messageLadderboard(channel, pages) {
+function messageLeaderboard(channel, pages) {
   channel.send({ embeds: [formatPageAsEmbed(pages, 0)] }).then((message) => {
     message.react(LEFT_ARROW);
     message.react(RIGHT_ARROW);
@@ -50,4 +50,4 @@ function messageLadderboard(channel, pages) {
   });
 }
 
-export default messageLadderboard;
+export default messageLeaderboard;
