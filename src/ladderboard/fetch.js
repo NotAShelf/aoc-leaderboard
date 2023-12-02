@@ -23,8 +23,6 @@ async function fetchApiLadderboard() {
     return [];
   }
 
-  console.log(res.data);
-
   const members = Object.values(res.data.members);
   sortByScore(members);
   return paginate(members, NB_MEMBER_PER_PAGE);
