@@ -1,7 +1,6 @@
 import { token, guildId, channelId } from "./utils/config.js";
-import fetchLadderboard from "./utils/fetchLadderboard.js";
-import formatPageAsEmbed from "./utils/formatLadderboard.js";
-import messageLadderboard from "./utils/messageLadderboard.js";
+import fetchLadderboard from "./ladderboard/fetch.js";
+import messageLadderboard from "./ladderboard/message.js";
 import client from "./utils/client.js";
 
 client.once("ready", async () => {

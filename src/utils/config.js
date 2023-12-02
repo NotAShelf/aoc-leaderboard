@@ -1,7 +1,7 @@
 import yaml from "js-yaml";
 import fs from "fs";
 
-const filePath = "./config.yml";
+const FILE_PATH = "./config.yml";
 
 function getConfig(filePath) {
   const configFile = fs.readFileSync(filePath, "utf8");
@@ -16,4 +16,4 @@ function getConfig(filePath) {
 }
 
 export const { token, guildId, channelId, aocToken, ladderBoardNumber } =
-  getConfig(filePath);
+  getConfig(FILE_PATH);

@@ -1,5 +1,5 @@
-import formatPageAsEmbed from "./formatLadderboard.js";
-import client from "./client.js";
+import formatPageAsEmbed from "./format.js";
+import client from "../utils/client.js";
 
 const LEFT_ARROW = "⬅️";
 const RIGHT_ARROW = "➡️";
