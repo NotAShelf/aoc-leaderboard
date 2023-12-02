@@ -15,4 +15,5 @@ function getConfig(filePath) {
   };
 }
 
-export const { token, guildId, channelId, aocToken } = getConfig(filePath);
+export const { token, guildId, channelId, aocToken, ladderBoardNumber } =
+  getConfig(filePath);

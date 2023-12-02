@@ -1,13 +1,13 @@
 import fsExtra from "fs-extra";
 
-const dataFilePath = "./data.json";
+const DATA_FILE_PATH = "./data.json";
 
 function fetchApiLadderboard() {
   throw new Error("Not implemented");
 }
 
 async function fetchFileLadderboard() {
-  const data = await fsExtra.readJson(dataFilePath);
+  const data = await fsExtra.readJson(DATA_FILE_PATH);
   const membersArray = Object.values(data.members);
 
   // paginate
