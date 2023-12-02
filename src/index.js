@@ -23,11 +23,19 @@ client.once("ready", async () => {
     return;
   }
 
+  let dataPages = [];
+
   // eslint-disable-next-line no-constant-condition
   while (true) {
-    const dataPages = await fetchLadderboard();
+    const newDataPages = await fetchLadderboard();
+
+    if (newDataPages.length > 0) {
+      dataPages = newDataPages;
+    }
+
     messageLadderboard(channel, dataPages);
-    sleep(3600);
+
+    await sleep(3600);
   }
 });
 
