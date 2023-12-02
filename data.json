@@ -1,1 +1,180 @@
-{"event":"2023","owner_id":3319152,"members":{"3414977":{"local_score":5,"name":"Ceye4n","last_star_ts":1701457850,"global_score":0,"id":3414977,"completion_day_level":{"1":{"1":{"star_index":189600,"get_star_ts":1701457850}}},"stars":1},"3366728":{"id":3366728,"completion_day_level":{"1":{"1":{"get_star_ts":1701428171,"star_index":80288},"2":{"star_index":139867,"get_star_ts":1701444655}}},"stars":2,"local_score":21,"last_star_ts":1701444655,"global_score":0,"name":"topazrn"},"2451234":{"completion_day_level":{"1":{"2":{"star_index":11067,"get_star_ts":1701408600},"1":{"star_index":0,"get_star_ts":1701407112}}},"stars":2,"id":2451234,"last_star_ts":1701408600,"global_score":0,"name":"ErynGalen","local_score":28},"3473879":{"global_score":0,"last_star_ts":0,"name":"Some1Deleted","local_score":0,"stars":0,"completion_day_level":{},"id":3473879},"976602":{"stars":2,"completion_day_level":{"1":{"2":{"star_index":84973,"get_star_ts":1701429509},"1":{"get_star_ts":1701428756,"star_index":82491}}},"id":976602,"global_score":0,"last_star_ts":1701429509,"name":"ItsDrike","local_score":23},"3417619":{"id":3417619,"completion_day_level":{"1":{"1":{"get_star_ts":1701443758,"star_index":136204},"2":{"star_index":147722,"get_star_ts":1701446592}}},"stars":2,"local_score":17,"name":"Iron","last_star_ts":1701446592,"global_score":0},"2748878":{"local_score":11,"global_score":0,"last_star_ts":1701462750,"name":"Vagahbond","id":2748878,"stars":2,"completion_day_level":{"1":{"1":{"get_star_ts":1701460352,"star_index":198004},"2":{"get_star_ts":1701462750,"star_index":205981}}}},"3263046":{"id":3263046,"completion_day_level":{"1":{"2":{"star_index":88684,"get_star_ts":1701430656},"1":{"get_star_ts":1701425157,"star_index":68878}}},"stars":2,"local_score":25,"name":"0xk1f0","global_score":0,"last_star_ts":1701430656},"3319152":{"local_score":7,"last_star_ts":1701443961,"global_score":0,"name":"NotAShelf","id":3319152,"stars":1,"completion_day_level":{"1":{"1":{"star_index":137013,"get_star_ts":1701443961}}}},"1202294":{"name":"diniamo","last_star_ts":1701449449,"global_score":0,"local_score":14,"completion_day_level":{"1":{"2":{"get_star_ts":1701449449,"star_index":159221},"1":{"star_index":146891,"get_star_ts":1701446377}}},"stars":2,"id":1202294},"3479681":{"local_score":0,"global_score":0,"last_star_ts":0,"name":"lyasm","id":3479681,"completion_day_level":{},"stars":0},"969595":{"completion_day_level":{"1":{"1":{"get_star_ts":1701426482,"star_index":74081}}},"stars":1,"id":969595,"global_score":0,"last_star_ts":1701426482,"name":"floppydisk05","local_score":12},"3470982":{"stars":1,"completion_day_level":{"1":{"1":{"get_star_ts":1701461915,"star_index":203220}}},"id":3470982,"global_score":0,"last_star_ts":1701461915,"name":"Jappie3","local_score":3},"287337":{"id":287337,"stars":2,"completion_day_level":{"1":{"1":{"get_star_ts":1701431336,"star_index":90865},"2":{"star_index":98045,"get_star_ts":1701433520}}},"local_score":20,"name":"teevik","global_score":0,"last_star_ts":1701433520}}}
+{
+  "event": "2023",
+  "owner_id": 3319152,
+  "members": {
+    "3414977": {
+      "local_score": 5,
+      "name": "Ceye4n",
+      "last_star_ts": 1701457850,
+      "global_score": 0,
+      "id": 3414977,
+      "completion_day_level": {
+        "1": { "1": { "star_index": 189600, "get_star_ts": 1701457850 } }
+      },
+      "stars": 1
+    },
+    "3366728": {
+      "id": 3366728,
+      "completion_day_level": {
+        "1": {
+          "1": { "get_star_ts": 1701428171, "star_index": 80288 },
+          "2": { "star_index": 139867, "get_star_ts": 1701444655 }
+        }
+      },
+      "stars": 2,
+      "local_score": 21,
+      "last_star_ts": 1701444655,
+      "global_score": 0,
+      "name": "topazrn"
+    },
+    "2451234": {
+      "completion_day_level": {
+        "1": {
+          "2": { "star_index": 11067, "get_star_ts": 1701408600 },
+          "1": { "star_index": 0, "get_star_ts": 1701407112 }
+        }
+      },
+      "stars": 2,
+      "id": 2451234,
+      "last_star_ts": 1701408600,
+      "global_score": 0,
+      "name": "ErynGalen",
+      "local_score": 28
+    },
+    "3473879": {
+      "global_score": 0,
+      "last_star_ts": 0,
+      "name": "Some1Deleted",
+      "local_score": 0,
+      "stars": 0,
+      "completion_day_level": {},
+      "id": 3473879
+    },
+    "976602": {
+      "stars": 2,
+      "completion_day_level": {
+        "1": {
+          "2": { "star_index": 84973, "get_star_ts": 1701429509 },
+          "1": { "get_star_ts": 1701428756, "star_index": 82491 }
+        }
+      },
+      "id": 976602,
+      "global_score": 0,
+      "last_star_ts": 1701429509,
+      "name": "ItsDrike",
+      "local_score": 23
+    },
+    "3417619": {
+      "id": 3417619,
+      "completion_day_level": {
+        "1": {
+          "1": { "get_star_ts": 1701443758, "star_index": 136204 },
+          "2": { "star_index": 147722, "get_star_ts": 1701446592 }
+        }
+      },
+      "stars": 2,
+      "local_score": 17,
+      "name": "Iron",
+      "last_star_ts": 1701446592,
+      "global_score": 0
+    },
+    "2748878": {
+      "local_score": 11,
+      "global_score": 0,
+      "last_star_ts": 1701462750,
+      "name": "Vagahbond",
+      "id": 2748878,
+      "stars": 2,
+      "completion_day_level": {
+        "1": {
+          "1": { "get_star_ts": 1701460352, "star_index": 198004 },
+          "2": { "get_star_ts": 1701462750, "star_index": 205981 }
+        }
+      }
+    },
+    "3263046": {
+      "id": 3263046,
+      "completion_day_level": {
+        "1": {
+          "2": { "star_index": 88684, "get_star_ts": 1701430656 },
+          "1": { "get_star_ts": 1701425157, "star_index": 68878 }
+        }
+      },
+      "stars": 2,
+      "local_score": 25,
+      "name": "0xk1f0",
+      "global_score": 0,
+      "last_star_ts": 1701430656
+    },
+    "3319152": {
+      "local_score": 7,
+      "last_star_ts": 1701443961,
+      "global_score": 0,
+      "name": "NotAShelf",
+      "id": 3319152,
+      "stars": 1,
+      "completion_day_level": {
+        "1": { "1": { "star_index": 137013, "get_star_ts": 1701443961 } }
+      }
+    },
+    "1202294": {
+      "name": "diniamo",
+      "last_star_ts": 1701449449,
+      "global_score": 0,
+      "local_score": 14,
+      "completion_day_level": {
+        "1": {
+          "2": { "get_star_ts": 1701449449, "star_index": 159221 },
+          "1": { "star_index": 146891, "get_star_ts": 1701446377 }
+        }
+      },
+      "stars": 2,
+      "id": 1202294
+    },
+    "3479681": {
+      "local_score": 0,
+      "global_score": 0,
+      "last_star_ts": 0,
+      "name": "lyasm",
+      "id": 3479681,
+      "completion_day_level": {},
+      "stars": 0
+    },
+    "969595": {
+      "completion_day_level": {
+        "1": { "1": { "get_star_ts": 1701426482, "star_index": 74081 } }
+      },
+      "stars": 1,
+      "id": 969595,
+      "global_score": 0,
+      "last_star_ts": 1701426482,
+      "name": "floppydisk05",
+      "local_score": 12
+    },
+    "3470982": {
+      "stars": 1,
+      "completion_day_level": {
+        "1": { "1": { "get_star_ts": 1701461915, "star_index": 203220 } }
+      },
+      "id": 3470982,
+      "global_score": 0,
+      "last_star_ts": 1701461915,
+      "name": "Jappie3",
+      "local_score": 3
+    },
+    "287337": {
+      "id": 287337,
+      "stars": 2,
+      "completion_day_level": {
+        "1": {
+          "1": { "get_star_ts": 1701431336, "star_index": 90865 },
+          "2": { "star_index": 98045, "get_star_ts": 1701433520 }
+        }
+      },
+      "local_score": 20,
+      "name": "teevik",
+      "global_score": 0,
+      "last_star_ts": 1701433520
+    }
+  }
+}

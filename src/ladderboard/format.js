@@ -1,19 +1,9 @@
-const { EmbedBuilder } = require("discord.js");
+import { EmbedBuilder } from "discord.js";
+import { ladderBoardNumber } from "../utils/config.js";
 
-function paginate(array, page_size) {
-  if (!Array.isArray(array)) {
-    throw new Error("Expected an array");
-  }
+function formatPageAsEmbed(pages, index) {
+  const page = pages[index];
 
-  const pages = [];
-  for (let i = 0; i < array.length; i += page_size) {
-    pages.push(array.slice(i, i + page_size));
-  }
-
-  return pages;
-}
-
-function formatPageAsEmbed(page) {
   const embed = new EmbedBuilder()
     .setColor("#ffffff")
     .setTitle("Advent of Code 2023 Leaderboard")
@@ -24,16 +14,24 @@ function formatPageAsEmbed(page) {
         "https://cdn.discordapp.com/icons/961691461554950145/a_b8077e6dbd9b2ff7ee4127f702eb8369.gif?size=1024&width=0&height=233",
       url: "https://adventofcode.com/2023/leaderboard/private/view/3319152",
     })
-    .setDescription("Use arrow reactions to navigate between pages")
+    .setDescription(
+      `Join our private leaderboard with the code ${ladderBoardNumber}`,
+    )
     .setFooter({
-      text: "Join our private leaderboard with the code 3319152-9754f45b",
+      text: `Page ${index + 1}/${
+        pages.length
+      }.\nUse arrow reactions to navigate between pages.`,
       iconURL: "https://adventofcode.com/favicon.png",
     });
 
   for (const memberId in page) {
     const member = page[memberId];
-    if (!member.name || !member.stars || !member.local_score) {
-      continue; // Skip this member if any of the properties are missing
+    if (
+      !member.name ||
+      member.stars == undefined ||
+      member.local_score == undefined
+    ) {
+      continue; // skip this member if any of the properties are missing
     }
     embed.addFields(
       {
@@ -43,7 +41,7 @@ function formatPageAsEmbed(page) {
       },
       {
         name: "Stars",
-        value: "⭐".repeat(String(member.stars)),
+        value: `${member.stars}⭐`,
         inline: true,
       },
       {
@@ -57,4 +55,4 @@ function formatPageAsEmbed(page) {
   return embed;
 }
 
-return { paginate, formatPageAsEmbed };
+export default formatPageAsEmbed;
