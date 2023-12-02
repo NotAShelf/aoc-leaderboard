@@ -3,6 +3,10 @@ import fetchLadderboard from "./ladderboard/fetch.js";
 import messageLadderboard from "./ladderboard/message.js";
 import client from "./utils/client.js";
 
+function sleep(s) {
+  return new Promise((resolve) => setTimeout(resolve, s * 1000));
+}
+
 client.once("ready", async () => {
   console.log(`Logged in as ${client.user.tag}`);
 
@@ -19,9 +23,12 @@ client.once("ready", async () => {
     return;
   }
 
-  const dataPages = await fetchLadderboard();
-
-  messageLadderboard(channel, dataPages);
+  // eslint-disable-next-line no-constant-condition
+  while (true) {
+    const dataPages = await fetchLadderboard();
+    messageLadderboard(channel, dataPages);
+    sleep(3600);
+  }
 });
 
 client.login(token);
