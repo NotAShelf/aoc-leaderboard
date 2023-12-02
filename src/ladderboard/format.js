@@ -37,7 +37,7 @@ function formatPageAsEmbed(pages, index) {
       },
       {
         name: "Stars",
-        value: "⭐".repeat(String(member.stars)),
+        value: `${member.stars}⭐`,
         inline: true,
       },
       {
