@@ -26,7 +26,11 @@ function formatPageAsEmbed(pages, index) {
 
   for (const memberId in page) {
     const member = page[memberId];
-    if (!member.name || !member.stars || !member.local_score) {
+    if (
+      !member.name ||
+      member.stars == undefined ||
+      member.local_score == undefined
+    ) {
       continue; // skip this member if any of the properties are missing
     }
     embed.addFields(
