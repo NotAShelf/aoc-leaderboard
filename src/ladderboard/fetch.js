@@ -9,9 +9,18 @@ function fetchApiLadderboard() {
 async function fetchFileLadderboard() {
   const data = await fsExtra.readJson(DATA_FILE_PATH);
   const membersArray = Object.values(data.members);
+  sortByScore(membersArray);
 
   // paginate
   return paginate(membersArray, 5);
+}
+
+function sortByScore(array) {
+  if (!Array.isArray(array)) {
+    throw new Error("Expected an array");
+  }
+
+  array.sort((a, b) => b.local_score - a.local_score);
 }
 
 function paginate(array, page_size) {
