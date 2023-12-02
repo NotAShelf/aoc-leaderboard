@@ -1,9 +1,33 @@
 import fsExtra from "fs-extra";
+import axios from "axios";
+
+import { aocToken, ladderBoardNumber } from "../utils/config.js";
 
 const DATA_FILE_PATH = "./data.json";
 
-function fetchApiLadderboard() {
-  throw new Error("Not implemented");
+const NB_MEMBER_PER_PAGE = 5;
+async function fetchApiLadderboard() {
+  const res = await axios.get(
+    `https://adventofcode.com/2023/leaderboard/private/view/${
+      ladderBoardNumber.split("-")[0]
+    }.json`,
+    {
+      headers: {
+        Cookie: `session=${aocToken}`,
+      },
+    },
+  );
+
+  if (res.status != "200") {
+    console.err(`error: ${res.status}, ${res.statusText}`);
+    return [];
+  }
+
+  console.log(res.data);
+
+  const members = Object.values(res.data.members);
+  sortByScore(members);
+  return paginate(members, NB_MEMBER_PER_PAGE);
 }
 
 async function fetchFileLadderboard() {
@@ -12,7 +36,7 @@ async function fetchFileLadderboard() {
   sortByScore(membersArray);
 
   // paginate
-  return paginate(membersArray, 5);
+  return paginate(membersArray, NB_MEMBER_PER_PAGE);
 }
 
 function sortByScore(array) {
@@ -36,4 +60,4 @@ function paginate(array, page_size) {
   return pages;
 }
 
-export default fetchFileLadderboard;
+export default fetchApiLadderboard;
