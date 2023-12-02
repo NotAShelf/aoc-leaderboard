@@ -1,15 +1,15 @@
 import fsExtra from "fs-extra";
 import axios from "axios";
 
-import { aocToken, ladderBoardNumber } from "../utils/config.js";
+import { aocToken, leaderboardNumber } from "../utils/config.js";
 
 const DATA_FILE_PATH = "./data.json";
 
 const NB_MEMBER_PER_PAGE = 5;
-async function fetchApiLadderboard() {
+async function fetchApiLeaderboard() {
   const res = await axios.get(
     `https://adventofcode.com/2023/leaderboard/private/view/${
-      ladderBoardNumber.split("-")[0]
+      leaderboardNumber.split("-")[0]
     }.json`,
     {
       headers: {
@@ -28,7 +28,7 @@ async function fetchApiLadderboard() {
   return paginate(members, NB_MEMBER_PER_PAGE);
 }
 
-async function fetchFileLadderboard() {
+async function fetchFileLeaderboard() {
   const data = await fsExtra.readJson(DATA_FILE_PATH);
   const membersArray = Object.values(data.members);
   sortByScore(membersArray);
@@ -58,4 +58,4 @@ function paginate(array, page_size) {
   return pages;
 }
 
-export default fetchApiLadderboard;
+export default fetchApiLeaderboard;

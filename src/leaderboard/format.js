@@ -1,5 +1,5 @@
 import { EmbedBuilder } from "discord.js";
-import { ladderBoardNumber } from "../utils/config.js";
+import { leaderboardNumber } from "../utils/config.js";
 
 function formatPageAsEmbed(pages, index) {
   const page = pages[index];
@@ -15,7 +15,7 @@ function formatPageAsEmbed(pages, index) {
       url: "https://adventofcode.com/2023/leaderboard/private/view/3319152",
     })
     .setDescription(
-      `Join our private leaderboard with the code ${ladderBoardNumber}`,
+      `Join our private leaderboard with the code ${leaderboardNumber}`,
     )
     .setFooter({
       text: `Page ${index + 1}/${

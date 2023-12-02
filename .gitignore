@@ -129,5 +129,5 @@ dist
 .yarn/install-state.gz
 .pnp.*
 
-# Config file
-config.yml
+# Config file and potential backups
+config.yml*

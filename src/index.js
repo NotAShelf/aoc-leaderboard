@@ -1,6 +1,6 @@
 import { token, guildId, channelId } from "./utils/config.js";
-import fetchLadderboard from "./ladderboard/fetch.js";
-import messageLadderboard from "./ladderboard/message.js";
+import fetchLeaderboard from "./leaderboard/fetch.js";
+import messageLeaderboard from "./leaderboard/message.js";
 import client from "./utils/client.js";
 
 function sleep(s) {
@@ -27,13 +27,13 @@ client.once("ready", async () => {
 
   // eslint-disable-next-line no-constant-condition
   while (true) {
-    const newDataPages = await fetchLadderboard();
+    const newDataPages = await fetchLeaderboard();
 
     if (newDataPages.length > 0) {
       dataPages = newDataPages;
     }
 
-    messageLadderboard(channel, dataPages);
+    messageLeaderboard(channel, dataPages);
 
     await sleep(3600);
   }

@@ -16,9 +16,11 @@ function messageLadderboard(channel, pages) {
       );
     };
 
+    let time = 600000; // 600 seconds or 10 minutes
+
     const collector = message.createReactionCollector({
       filter,
-      time: 60000, // 60 seconds
+      time: time,
     });
 
     let pageNumber = 0;
@@ -37,6 +39,14 @@ function messageLadderboard(channel, pages) {
       // remove the user's reaction
       reaction.users.remove(user.id);
     });
+
+    // if the collector ends, we stop updating the message
+    // and remove the reactions
+    if (collector.ended) {
+      // remove reactions
+      message.reactions.removeAll();
+      // stop the timer
+    }
   });
 }
 
