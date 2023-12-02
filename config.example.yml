@@ -1,1 +1,5 @@
-token: "your-bot-token-here"
+token: ""
+guildId: ""
+channelId: ""
+aocToken: ""
+leaderboardNumber: ""
