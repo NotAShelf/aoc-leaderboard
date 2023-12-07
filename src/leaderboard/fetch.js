@@ -1,10 +1,34 @@
 import fsExtra from "fs-extra";
 import axios from "axios";
 
-import { aocToken, leaderboardNumber } from "../handlers/configHandler.js";
+import {
+  aocToken,
+  leaderboardNumber,
+} from "../utils/handlers/configHandler.js";
 
 const DATA_FILE_PATH = "./data.json";
 const NB_MEMBER_PER_PAGE = 5;
+
+async function fetchLeaderboard(callback) {
+  function sleep(s) {
+    return new Promise((resolve) => setTimeout(resolve, s * 1000));
+  }
+
+  let dataPages = [];
+
+  // eslint-disable-next-line no-constant-condition
+  while (true) {
+    const newDataPages = await fetchApiLeaderboard();
+
+    if (newDataPages.length > 0) {
+      dataPages = newDataPages;
+    }
+
+    callback(dataPages);
+
+    await sleep(3600);
+  }
+}
 
 async function fetchApiLeaderboard() {
   const res = await axios.get(
@@ -38,10 +62,6 @@ async function fetchFileLeaderboard() {
 }
 
 function sortByScore(array) {
-  if (!Array.isArray(array)) {
-    throw new Error("Expected an array");
-  }
-
   array.sort((a, b) => b.local_score - a.local_score);
 }
 
@@ -58,4 +78,4 @@ function paginate(array, page_size) {
   return pages;
 }
 
-export default fetchApiLeaderboard;
+export default fetchLeaderboard;

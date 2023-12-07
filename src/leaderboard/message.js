@@ -1,10 +1,19 @@
 import formatPageAsEmbed from "./format.js";
 import client from "../utils/client.js";
+import fetchLeaderboard from "./fetch.js";
 
 const LEFT_ARROW = "⬅️";
 const RIGHT_ARROW = "➡️";
+const INTERACTION_TIME = 600000; // 600 seconds or 10 minutes
 
-function messageLeaderboard(channel, pages) {
+function messageLeaderboard(channel) {
+  fetchLeaderboard((dataPages) => {
+    buildMessageLeaderboard(channel, dataPages);
+  });
+}
+
+// Cock
+function buildMessageLeaderboard(channel, pages) {
   channel.send({ embeds: [formatPageAsEmbed(pages, 0)] }).then((message) => {
     message.react(LEFT_ARROW);
     message.react(RIGHT_ARROW);
@@ -16,11 +25,9 @@ function messageLeaderboard(channel, pages) {
       );
     };
 
-    let time = 600000; // 600 seconds or 10 minutes
-
     const collector = message.createReactionCollector({
       filter,
-      time: time,
+      time: INTERACTION_TIME,
     });
 
     let pageNumber = 0;

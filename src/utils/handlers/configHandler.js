@@ -1,6 +1,7 @@
 import yaml from "js-yaml";
 import fs from "fs";
-import client from "./client.js";
+
+import { exit } from "process";
 
 const FILE_PATH = "./config.yml";
 
@@ -18,22 +19,7 @@ function getConfig(filePath) {
   };
 }
 
-const validateConfig = (config) => {
-  // target guild and channel
-  const guild = client.guilds.cache.get(config.guildId);
-  if (!guild) {
-    console.error(`Guild ${config.guildId} not found`);
-    return;
-  }
-
-  const channel = guild.channels.cache.get(config.channelId);
-  if (!channel) {
-    console.error(`Channel ${config.channelId} not found`);
-    return;
-  }
-
-  return channel && guild;
-};
+const config = getConfig(FILE_PATH);
 
 export const {
   token,
@@ -43,14 +29,4 @@ export const {
   aocToken,
   leaderboardNumber,
   channel,
-} = getConfig(FILE_PATH);
-
-// Example usage:
-validateConfig({
-  token,
-  guildId,
-  channelId,
-  clientId,
-  aocToken,
-  leaderboardNumber,
-});
+} = config;

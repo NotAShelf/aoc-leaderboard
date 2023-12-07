@@ -1,56 +1,31 @@
-import { token, guildId, channelId } from "./handlers/configHandler.js";
+import { token, guildId, channelId } from "./utils/handlers/configHandler.js";
 
-import fetchLeaderboard from "./leaderboard/fetch.js";
 import messageLeaderboard from "./leaderboard/message.js";
 
 import handleInteraction from "./utils/handlers/interactionHandler.js";
 
 import client from "./utils/client.js";
-import { registerCommands, loadCommands } from "./utils/commands.js";
-
-function sleep(s) {
-  return new Promise((resolve) => setTimeout(resolve, s * 1000));
-}
+import loadCommands from "./utils/commands.js";
 
 client.once("ready", async () => {
   console.log(`Logged in as ${client.user.tag}`);
 
-  // target guild and channel
   const guild = client.guilds.cache.get(guildId);
+
   if (!guild) {
     console.error("Guild ${guildId} not found");
-    return;
   }
 
   const channel = guild.channels.cache.get(channelId);
-  if (!channel) {
-    console.error("Channel ${channelId} not found");
-    return;
-  }
 
-  let dataPages = [];
+  // target guild and channel
 
-  // eslint-disable-next-line no-constant-condition
-  while (true) {
-    const newDataPages = await fetchLeaderboard();
-
-    if (newDataPages.length > 0) {
-      dataPages = newDataPages;
-    }
-
-    messageLeaderboard(channel, dataPages);
-
-    await sleep(3600);
-  }
+  messageLeaderboard(channel);
 });
 
-console.log("Loading commands...");
-try {
-  await loadCommands();
-  await registerCommands();
-} catch (error) {
-  console.error(error);
-}
+console.log("Loading commands.");
+
+loadCommands();
 
 client.on("interactionCreate", async (interaction) => {
   await handleInteraction(interaction);

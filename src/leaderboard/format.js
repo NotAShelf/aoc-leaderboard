@@ -1,5 +1,5 @@
 import { EmbedBuilder } from "discord.js";
-import { leaderboardNumber } from "../handlers/configHandler.js";
+import { leaderboardNumber } from "../utils/handlers/configHandler.js";
 
 function formatPageAsEmbed(pages, index) {
   const page = pages[index];
